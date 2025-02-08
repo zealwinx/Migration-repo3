@@ -1,0 +1,13 @@
+image: python:3.9
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Run git remote
+          caches:
+            - pip
+          deployment: production
+          script:
+            - echo "Syncing to Github..."
+            - python -vv git_remote.py
